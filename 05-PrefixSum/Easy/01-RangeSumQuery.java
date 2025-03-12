@@ -25,17 +25,35 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3]
 class NumArray {
     private int[] nums;
     public NumArray(int[] nums) {
+        for(int i = 1 ; i < nums.length;i++){
+            nums[i] += nums[i-1];
+        }
         this.nums = nums;
     }
     
     public int sumRange(int left, int right) {
-        int sum = 0;
-        for(int i = left;i<=right;i++){
-            sum += nums[i];
+        if(left == 0){
+            return nums[right];
         }
-        return sum;
+        return nums[right] - nums[left-1];
     }
 }
+
+eg : 
+n1 = [1,2,3,4,5]
+left,right = 2,4
+prefix sum = [1,3,6,10,15]
+ans = 2 + 3 + 4 = 9 
+nums[right] = 10
+nums[left] = 3
+nums[left-1] = 1
+ans = nums[right] - nums[left-1]
+
+* 
+n2 = [0,1,2,3]
+l,r = 1,3
+ans = 6 (0 + 1 + 2 + 3)
+nums[r] = 3
 
 /**
  * Your NumArray object will be instantiated and called as such:
