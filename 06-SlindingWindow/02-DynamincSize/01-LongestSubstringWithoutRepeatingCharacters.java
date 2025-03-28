@@ -65,15 +65,6 @@ class Solution {
         return maxLen; // Return the maximum length of the unique substring
     }
 
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-        System.out.println(sol.lengthOfLongestSubstring("abcabcbb")); // Output: 3
-        System.out.println(sol.lengthOfLongestSubstring("bbbbb"));    // Output: 1
-        System.out.println(sol.lengthOfLongestSubstring("pwwkew"));   // Output: 3
-        System.out.println(sol.lengthOfLongestSubstring(""));         // Output: 0
-    }
-}
-
 The algorithm has O(2N) = O(N) complexity because each character is processed at most twice—once
 when expanding (j moves right) and once when shrinking (i moves right). Since both pointers traverse N positions,
 the total operations are 2N, simplifying to O(N).
